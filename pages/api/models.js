@@ -11,8 +11,8 @@ export default async function handler(request, response) {
   try {
     const client = await new MongoClient(uri, options).connect();
     console.log("Just Connected to MongoDB");
-    const db = client.db("TbhDB");
-    const collection = db.collection("TbhData");
+    const db = client.db("googlesheets-db");
+    const collection = db.collection("googlesheets-collection");
     const results = await collection.find({}).toArray();
     response.status(200).json(results);
     // response.status is used to set the HTTP status code, and json is used to send a JSON response.
